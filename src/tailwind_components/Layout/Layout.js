@@ -47,12 +47,13 @@ const Layout = () => {
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center gap-4">
                 <span>📧 reachus@studystreak.io</span>
-                <span>📞 +91 91069 95326</span>
+                <span>📞 +91 88496 50924</span>
               </div>
               <div className="hidden md:flex items-center gap-4">
                 <Link
                   to="/talk-to-us"
                   className="hover:text-white transition-colors duration-300"
+                  style={{ color: "white" }}
                 >
                   Talk to Us
                 </Link>
@@ -60,6 +61,7 @@ const Layout = () => {
                 <Link
                   to="/become-a-partner"
                   className="hover:text-white transition-colors duration-300"
+                  style={{ color: "white" }}
                 >
                   Become a Partner
                 </Link>
@@ -259,12 +261,14 @@ const Layout = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-heading font-bold">Contact Us</h3>
                 <div className="space-y-3 text-neutral-400">
-                  <p>
+                  <p className="text-neutral-400">
                     1st and 2nd Floor, Galav Chambers, Dairy Den Circle,
                     Sayajigunj, Vadodara, Gujarat, India - 390020
                   </p>
-                  <p>Phone: (+91) 8849650924</p>
-                  <p>Email: reachus@studystreak.io</p>
+                  <p className="text-neutral-400">Phone: (+91) 8849650924</p>
+                  <p className="text-neutral-400">
+                    Email: reachus@studystreak.io
+                  </p>
                 </div>
 
                 {/* Social Links */}
@@ -325,7 +329,9 @@ const Layout = () => {
 
             {/* Copyright */}
             <div className="border-t border-neutral-800 mt-12 pt-8 text-center text-neutral-400">
-              <p>© 2024 StudyStreak. All rights reserved.</p>
+              <p className="text-neutral-400">
+                © 2024 StudyStreak. All rights reserved.
+              </p>
             </div>
           </div>
         </footer>

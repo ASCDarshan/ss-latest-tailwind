@@ -17,14 +17,11 @@ import TestimonialSection from "./Testimonial/TestimonialSection";
 import { Link, useNavigate } from "react-router-dom";
 import CourseList from "./Course/CourseList";
 import ajaxCall from "../helpers/ajaxCall";
-import banner from "../img/about/about_10.png";
+import Packages from "./Packages/Packages";
 
 const HomePage = () => {
   const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
   const navigate = useNavigate();
-  const handleExplorecourses = () => {
-    navigate("/courses");
-  };
 
   const handlestartJourney = () => {
     navigate("/login");
@@ -169,7 +166,10 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/2 space-y-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h1
+                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
+                style={{ color: "white" }}
+              >
                 Achieve your dream of overseas Education with StudyStreak.
               </h1>
               <p className="text-primary-100 text-lg">
@@ -178,49 +178,49 @@ const HomePage = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => handleCategory("IELTS")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   IELTS
                 </button>
                 <button
                   onClick={() => handleCategory("PTE")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-1 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   PTE
                 </button>
                 <button
                   onClick={() => handleCategory("TOEFL")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-1 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   TOEFL
                 </button>
                 <button
                   onClick={() => handleCategory("GMAT")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-1 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   GMAT
                 </button>
                 <button
                   onClick={() => handleCategory("GRE")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-1 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   GRE
                 </button>
                 <button
                   onClick={() => handleCategory("SAT")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-1 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   SAT
                 </button>
                 <button
                   onClick={() => handleCategory("GENERAL")}
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl 
+                  className="bg-accent-500 hover:bg-accent-600 text-white px-5 py-1 rounded-xl 
                   shadow-soft hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   GENERAL
@@ -240,7 +240,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* Features Section */}
-      <section className="py-12 md:py-16 bg-neutral-100">
+      <section className="py-8 md:py-8 bg-neutral-100">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => {
@@ -248,14 +248,14 @@ const HomePage = () => {
               return (
                 <div
                   key={index}
-                  className="group bg-white rounded-xl p-6 border border-neutral-200 shadow-card
+                  className="group bg-white rounded-xl p-4 border border-neutral-200 shadow-card
                 hover:shadow-card-hover hover:border-primary-200 transition-all duration-300
                 transform hover:-translate-y-1"
                 >
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-6">
                     <div
-                      className={`${feature.iconBgColor} p-3 rounded-xl 
-                    group-hover:scale-110 transition-all duration-300`}
+                      className={`${feature.iconBgColor} rounded-xl 
+                    group-hover:scale-110 transition-all duration-300 mt-3`}
                     >
                       <IconComponent
                         className={`w-6 h-6 ${feature.iconColor}`}
@@ -269,7 +269,7 @@ const HomePage = () => {
                       >
                         {feature.title}
                       </h3>
-                      <p className="text-neutral-600 mt-2">
+                      <p className="text-small text-neutral-700">
                         {feature.description}
                       </p>
                     </div>
@@ -280,8 +280,47 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* cta for free practice test and Diagnostic test  */}
+      <section className="py-16 bg-gradient-to-br from-primary-300 to-primary-800 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-grid-pattern opacity-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to Start Your Journey?
+          </h2>
+          <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of students who have achieved their dream scores with
+            StudyStreak.
+          </p>
+          <button
+            onClick={handlestartJourney}
+            className="bg-white text-primary-600 px-8 py-3 rounded-xl hover:bg-primary-50
+            transition-all duration-300 font-semibold shadow-elevated hover:shadow-hover
+            transform hover:-translate-y-0.5"
+          >
+            Free Practice Test
+          </button>
+          <button
+            onClick={handlestartJourney}
+            className="bg-white text-primary-600 px-8 py-3 rounded-xl hover:bg-primary-50
+            transition-all duration-300 font-semibold shadow-elevated hover:shadow-hover
+            transform hover:-translate-y-0.5 ml-2"
+          >
+            Free Diagnostic Test
+          </button>
+        </div>
+      </section>
+
       {/* Exam Courses Section */}
       <CourseList />
+
       {/* PTE Courses Section */}
       <section className="py-12 md:py-16 bg-neutral-100">
         <div className="container mx-auto px-4">
@@ -376,8 +415,11 @@ const HomePage = () => {
           </Carousel>
         </div>
       </section>
+
       {/* Testimonials Section */}
       <TestimonialSection />
+
+      <Packages />
 
       {/* Webinars Section */}
       <section className="py-12 md:py-16">

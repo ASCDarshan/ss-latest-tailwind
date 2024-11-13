@@ -1,8 +1,42 @@
 import { CheckCircle } from "lucide-react";
 import React, { useState } from "react";
+import BatchSelection from "./BatchSelectionModal";
+import { useNavigate } from "react-router-dom";
 
 const PackageDetails = ({ courseType, courseId, packages, courseName }) => {
   const [selectedPackage, setSelectedPackage] = useState(null);
+  const [selectedPackageId, setSelectedPackageId] = useState("");
+  const [packageName, setPackageName] = useState("");
+  const [packagePrice, setPackagePrice] = useState("");
+  const [showBatchSelection, setShowBatchSelection] = useState(false);
+  const navigate = useNavigate();
+
+  const handleEnroll = (pkg, index) => {
+    setSelectedPackage(index);
+
+    if (courseType === "TAUGHT") {
+      setPackageName(pkg.package_name);
+      setPackagePrice(pkg.package_price);
+      setSelectedPackageId(pkg.package_id);
+      setShowBatchSelection(true);
+    } else {
+      navigate("/checkout", {
+        state: {
+          courseId,
+          packageId: pkg.package_id,
+          courseName,
+          packageName: pkg.package_name,
+          packagePrice: pkg.package_price,
+          courseType,
+        },
+      });
+    }
+  };
+
+  const handleBatchSelectionModalClose = () => {
+    setSelectedPackageId("");
+    setShowBatchSelection(false);
+  };
 
   return (
     <div className="mb-12">
@@ -43,7 +77,7 @@ const PackageDetails = ({ courseType, courseId, packages, courseName }) => {
 
               {/* Feature Chips */}
               <div className="flex flex-wrap gap-2 mt-4">
-                {pkg.live_classes_membership && (
+                {courseType === "TAUGHT" && (
                   <div className="inline-flex items-center gap-1.5 bg-success-100 text-success-700 px-3 py-1 rounded-full text-sm font-medium">
                     <div className="w-2 h-2 bg-success-500 rounded-full animate-pulse" />
                     Live Classes Available
@@ -137,9 +171,9 @@ const PackageDetails = ({ courseType, courseId, packages, courseName }) => {
                                 : "bg-neutral-400"
                             }`}
                             style={{
-                              width: `${Math.max(
+                              width: `${Math.min(
                                 (parseInt(feature.count) / 10) * 100,
-                                10
+                                100
                               )}%`,
                             }}
                           />
@@ -152,7 +186,7 @@ const PackageDetails = ({ courseType, courseId, packages, courseName }) => {
 
             {/* Action Button */}
             <button
-              onClick={() => setSelectedPackage(index)}
+              onClick={() => handleEnroll(pkg, index)}
               className={`w-full py-4 rounded-xl font-semibold transition-all duration-300
               ${
                 selectedPackage === index
@@ -176,6 +210,17 @@ const PackageDetails = ({ courseType, courseId, packages, courseName }) => {
           </div>
         ))}
       </div>
+
+      <BatchSelection
+        show={showBatchSelection}
+        onHide={handleBatchSelectionModalClose}
+        courseId={courseId}
+        packageId={selectedPackageId}
+        courseName={courseName}
+        packageName={packageName}
+        packagePrice={packagePrice}
+        courseType={courseType}
+      />
     </div>
   );
 };
