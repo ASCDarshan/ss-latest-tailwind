@@ -75,7 +75,7 @@
   --headingColor: #222222;
   --contentColor: #222222;
   --contentColor2: #222222;
-  --primaryColor: #01579b;
+  --primaryColor: rgb(114 103 184);
   --secondaryColor: #f2277e;
   --secondaryColor2: #ff275a;
   --secondaryColor3: #ff2828;
@@ -212,9 +212,9 @@ a {
   color: var(--contentColor);
 }
 
-a:hover {
+/* a:hover {
   color: var(--primaryColor);
-}
+} */
 
 input:focus-visible {
   outline: none;
@@ -254,7 +254,7 @@ ul {
 
 li {
   list-style: none;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .container,
@@ -15118,9 +15118,9 @@ Dark Mode
   padding: 10px;
 }
 
-li {
+/* li {
   display: inline-block;
-}
+} */
 
 .select-search-row {
   list-style: none;

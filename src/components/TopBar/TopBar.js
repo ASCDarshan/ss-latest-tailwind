@@ -11,7 +11,7 @@ const TopBar = () => {
           <div className="col-xl-6 col-lg-6 ">
             <div className="topbar__left">
               <ul className="topbar_ul">
-                <li>Call Us: +91 91069 95326 </li>
+                <li>Call Us: +91 88496 50924</li>
                 <li>- Mail Us: reachus@studystreak.io</li>
               </ul>
             </div>

@@ -47,7 +47,7 @@ const TalkToUsPage = () => {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
       description: "Talk to our team",
-      info: "+91-91069 95326",
+      info: "+91 88496 50924",
       action: "call",
     },
     {
@@ -80,7 +80,7 @@ const TalkToUsPage = () => {
       city: "Vadodara",
       address:
         "1st and 2nd Floor, Galav Chambers, Dairy Den Circle, Sayajigunj, Vadodara, Gujarat, India - 390020",
-      phone: "+91-91069 95326",
+      phone: "+91-88496 50924",
       email: "reachus@studystreak.io",
       timing: "Mon-Sat: 9:00 AM - 6:00 PM",
     },
